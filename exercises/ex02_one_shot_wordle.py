@@ -54,5 +54,3 @@ if len(user_word) == len(secret_word):
         print("Woo! You got it!")
     else:
         print("Not quite. Play again soon!")
-        exit()
-        # the game will end after each guess.
