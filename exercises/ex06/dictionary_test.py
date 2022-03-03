@@ -19,10 +19,10 @@ def test_invert_items() -> None:
     assert invert(data) == dict({'z': 'a', 'y': 'b', 'x': 'c'})
 
 
-def test_invert_repeated_items() -> None:
-    """Tests if the invert function works when the inverted dictionary has repeated keys."""
-    data: dict[str, str] = dict({'a': 'z', 'b': 'z', 'c': 'x'})
-    assert invert(data) == KeyError
+def test_invert_less_items() -> None:
+    """Tests if the invert function works when the dictionary is normal."""
+    data: dict[str, str] = dict({'a': 'z', 'b': 'y'})
+    assert invert(data) == dict({'z': 'a', 'y': 'b'})
 
 
 def test_favorite_color_empty() -> None:
