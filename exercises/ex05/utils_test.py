@@ -1,20 +1,63 @@
-"""EX05 - Experimenting with unit tests"""
+"""Tests the only_evens, sub, and concat functions."""
 
 __author__ = "730489697"
 
-from utils import only_evens, sub, concat
+
+from exercises.ex05.utils import only_evens, sub, concat
 
 
 def test_only_evens_empty() -> None:
-    xs: list[float] = []
-    assert sum([]) == 0.0
+    lst: list[int] = []
+    assert only_evens(lst) == []
+
+
+def test_only_evens_single_item() -> None:
+    lst: list[int] = [2]
+    assert only_evens(lst) == [2]
+
+
+def test_only_evens_many_items() -> None:
+    lst: list[int] = [1, 2, 3]
+    assert only_evens(lst) == [2]
+
+
+def test_sub_empty() -> None:
+    sub_lst: list[int] = []
+    x = 1
+    y = 3
+    assert sub(lst) == []
 
 
 def test_sub_single_item() -> None:
-    xs: list[float] = [110.0]
-    assert sum(xs) == 110.0
+    sub_lst: list[int] = [2]
+    x = 1
+    y = 3
+    assert sub(lst) == []
+
+
+def test_sub_many_items() -> None:
+    sub_lst: list[int] = [1, 2, 3, 4]
+    x = 1
+    y = 3
+    assert sub(lst) == [2, 3]
+
+
+def test_concat_empty() -> None:
+    result: list[int] = []
+    x: list[int] = []
+    y: list[int] = []
+    assert concat(lst) == []
+
+
+def test_concat_single_item() -> None:
+    result: list[int] = []
+    x: list[int] = [1]
+    y: list[int] = [2]
+    assert concat(lst) == [1, 2]
 
 
 def test_concat_many_items() -> None:
-    xs: list[float] = [1.0, 2.0, 3.0]
-    assert sum(xs) == 6.0
+    result: list[int] = []
+    x: list[int] = [1, 2, 3]
+    y: list[int] = [4, 5, 6]
+    assert concat(lst) == [1, 2, 3, 4, 5, 6]
