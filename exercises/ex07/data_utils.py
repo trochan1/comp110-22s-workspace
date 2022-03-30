@@ -65,9 +65,9 @@ def concat(data_cols_head: dict[str, list[str]], new_table: dict[str, list[str]]
         if a in result:
             for a in new_table:
                 result[a].append(a)
-            else:
-                result[a] = new_table[a]
-        return result
+        else:
+            result[a] = new_table[a]
+    return result
 
 
 def count(lst: list[str]) -> dict[str, int]:
