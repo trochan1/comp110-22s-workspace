@@ -2,20 +2,17 @@
 
 __author__ = "730489697"
 
+from csv import DictReader
 
-def read_csv_rows(nc_durham_2015_march_21_to_26.csv: str) -> list[dict[str, str]]:
+
+def read_csv_rows(filename: str) -> list[dict[str, str]]:
     """Reads the rows of a csv into a 'table'."""
     result: list[dict[str, str]] = []
-
-    file_handle = open(nc_durham_2015_march_21_to_26.csv, "r", encoding="utf8")
-
+    file_handle = open(filename, "r", encoding="utf8")
     csv_reader = DictReader(file_handle)
-
     for row in csv_reader:
         result.append(row)
-
     file_handle.close()
-
     return result
 
 
@@ -31,11 +28,9 @@ def column_values(table: list[dict[str, str]], column: str) -> list[str]:
 def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     """Transforms a row-oriented table to a column-oriented table."""
     result: dict[str, list[str]] = {}
-
-    first_row: dict[str, str] = rowtable[0]
+    first_row: dict[str, str] = row_table[0]
     for column in first_row:
         result[column] = column_values(row_table, column)
-
     return result
 
 
@@ -71,7 +66,7 @@ def concat(data_cols_head: dict[str, list[str]], new_table: dict[str, list[str]]
             for i in new_table:
                 result[a].append(i)
             else:
-                result[a].append(i)
+                result[a] = new_table[a]
         return result
 
 
