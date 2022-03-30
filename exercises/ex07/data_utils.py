@@ -62,9 +62,9 @@ def concat(data_cols_head: dict[str, list[str]], new_table: dict[str, list[str]]
     for column in data_cols_head:
         result[column] = data_cols_head[column]
     for a in new_table:
-        if a in result:
+        if i in result:
             for a in new_table:
-                result[a].append(a)
+                result[a].append(i)
         else:
             result[a] = new_table[a]
     return result
