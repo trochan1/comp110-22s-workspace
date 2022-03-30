@@ -34,39 +34,39 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     return result
 
 
-def head(data_cols_head: dict[str, list[str]], n: int) -> dict[str, list[str]]:
+def head(x: dict[str, list[str]], y: int) -> dict[str, list[str]]:
     """Produces a new column-based table with only the first N rows of data."""
     result: dict[str, list[str]] = {}
-    if n > len(data_cols_head):
-        n = len(data_cols_head)
-    for column in data_cols_head:
+    if y > len(x):
+        y = len(x)
+    for column in x:
         lst: list[str] = []
-        for i in range(0, n):
-            lst.append(data_cols_head[column][i])
+        i: int = 0
+        while i < y:
+            lst.append(x[column][i])
             i += 1
         result[column] = lst
     return result
 
 
-def select(data_cols_head: dict[str, list[str]], nm: list[str]) -> dict[str, list[str]]:
+def select(x: dict[str, list[str]], nm: list[str]) -> dict[str, list[str]]:
     """Produces a new column based table with a subset of the original columns."""
     result: dict[str, list[str]] = {}
     for column in nm:
-        result[column] = data_cols_head[column]
+        result[column] = x[column]
     return result
 
 
-def concat(data_cols_head: dict[str, list[str]], new_table: dict[str, list[str]]) -> dict[str, list[str]]:
+def concat(x: dict[str, list[str]], y: dict[str, list[str]]) -> dict[str, list[str]]:
     """Produces a new column-based table with two column based tables."""
     result: dict[str, list[str]] = {}
-    for column in data_cols_head:
-        result[column] = data_cols_head[column]
-    for a in new_table:
-        if b in result:
-            for a in new_table:
-                result[a].append(b)
+    for column in x:
+        result[column] = x[column]
+    for a in y:
+        if a in result:
+            result[a] = result[a] + y[a]
         else:
-            result[a] = new_table[a]
+            result[a] = y[a]
     return result
 
 
