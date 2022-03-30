@@ -73,7 +73,7 @@ def concat(data_cols_head: dict[str, list[str]], new_table: dict[str, list[str]]
 def count(lst: list[str]) -> dict[str, int]:
     """Produces a dict where every key is a unique value in a list."""
     lt: dict[str, int] = {}
-    for i in lt:
+    for i in lst:
         if i in lt:
             lt[i] += 1
         else:
