@@ -27,7 +27,7 @@ class Simpy:
             self.values.append(value)
             i += 1
     
-    def arange(self, start: float, stop: float, step: float = 1.0):
+    def arange(self, start: float, stop: float, step: float = 1.0) -> None:
         """Fills in the values for a given range of values."""
         assert step != 0.0
         self.values.append(start)
