@@ -8,7 +8,7 @@ def contains_char(word: str, character: str) -> bool:
     assert len(character) == 1
     idx: int = 0
     while idx < len(word):
-    # a while loop can be used to prompt a user to input a word until it is the correct length (rather than exiting the program early).
+        # a while loop can be used to prompt a user to input a word until it is the correct length (rather than exiting the program early).
         if character == word[idx]:
             return True
         else:
